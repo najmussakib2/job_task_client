@@ -7,6 +7,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import DetailPage from './DetailPage.jsx';
+import Invoice from './Invoice.jsx';
 
 const router = createBrowserRouter([
   {

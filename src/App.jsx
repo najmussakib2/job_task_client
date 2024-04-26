@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 
+
 function App() {
 
   const [allData, setAllData] = useState([])
@@ -17,9 +18,9 @@ function App() {
   }, [])
 
   console.log(allData)
-  if (typeof allData!== 'undefined' && allData.length === 0) {
+  if (typeof allData !== 'undefined' && allData.length === 0) {
     return <p>Loading......</p>;
-}
+  }
   return (
     <>
       <div className='mb-20'>
@@ -28,7 +29,7 @@ function App() {
       </div>
       <div className='md:grid md:grid-cols-3 gap-y-24 gap-x-5'>
         {allData && allData.map((data) => (
-          <div className="relative flex flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
+          <div key={data._id} className="relative flex flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
             <div
               className="relative h-56 mx-4 -mt-6 overflow-hidden text-white shadow-lg bg-clip-border rounded-xl bg-blue-gray-500 shadow-blue-gray-500/40">
               <img className='block object-cover mx-auto h-56'
@@ -57,12 +58,12 @@ function App() {
 
       </div>
 
-     
 
-        </>
-        )
+
+    </>
+  )
 }
 
-        export default App
+export default App
 
 

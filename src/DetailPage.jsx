@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import Modal from './Modal';
 
 const DetailPage = () => {
     const { id } = useParams();
@@ -21,7 +22,7 @@ const DetailPage = () => {
 
                 }
             } catch (error) {
-                console.log(error.message);
+                console.log(error);
             }
         };
 
@@ -61,15 +62,15 @@ const DetailPage = () => {
                                         return null;
                                     }
                                     return (
-
                                         <div key={key} className='flex justify-between font-semibold'>
                                             <p className='py-1'>{key.charAt(0).toUpperCase() + key.slice(1)}:</p>
-
                                             <p className='py-1'>{Data[key]}</p>
                                         </div>
                                     );
                                 })}
-
+                                <div className='text-end mt-3'>
+                                    <Modal data={Data} />
+                                </div>
                             </div>
                         </div>
 
