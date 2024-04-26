@@ -2,7 +2,6 @@
 
 const Invoice = ({ pdfRef, data, date }) => {
 
-    console.log(data)
 
     return (
         <div>

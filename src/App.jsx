@@ -10,14 +10,14 @@ function App() {
   const [allData, setAllData] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/v1')
+    fetch(import.meta.env.VITE_SERVER_URL)
       .then(res => res.json())
       .then(data => {
         setAllData(data.data);
       }).catch(e => console.log(e.message));
   }, [])
 
-  console.log(allData)
+  
   if (typeof allData !== 'undefined' && allData.length === 0) {
     return <p>Loading......</p>;
   }

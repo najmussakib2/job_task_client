@@ -10,12 +10,12 @@ const DetailPage = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const productResponse = await fetch(`http://localhost:5000/api/v1/product/${id}`);
+                const productResponse = await fetch(`${import.meta.env.VITE_SERVER_URL}/product/${id}`);
                 const productData = await productResponse.json();
                 setData(productData.data);
 
                 if (productData.data && productData.data.category) {
-                    const categoryResponse = await fetch(`http://localhost:5000/api/v1/${productData.data.category}`);
+                    const categoryResponse = await fetch(`${import.meta.env.VITE_SERVER_URL}/${productData.data.category}`);
                     const categoryInfo = await categoryResponse.json();
                     const filteredCategoryData = categoryInfo.data.filter(item => item._id !== id);
                     setCategoryData(filteredCategoryData);
